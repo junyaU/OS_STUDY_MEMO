@@ -12,6 +12,9 @@ x86_64アーキテクチャの自作OSを作成するにあたっての勉強録
 - [ページング](./paging/paging.md)
 
 ### Local APIC
+- [社内勉強会発表資料 - Local APIC Timerを用いて時間計測機能を実装](./documents/local_apic_timer_study.pdf)
+- [勉強会用OS実行デモ](./documents/local_apic_timer.mov)
+- [勉強会用リポジトリ](https://github.com/junyaU/time-measurement-using-Local-APIC)
 
 ## 参考
 Intel® 64 and IA-32 Architectures SDM \
