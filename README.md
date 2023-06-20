@@ -10,6 +10,7 @@ x86_64アーキテクチャの自作OSを作成するにあたっての勉強録
 ### ページング
 - [物理アドレスと物理アドレス](./paging/address.md)
 - [ページング](./paging/paging.md)
+- [作業録](./paging/worklog.md)
 
 ### Local APIC
 - [社内勉強会発表資料 - Local APIC Timerを用いて時間計測機能を実装](./documents/local_apic_timer_study.pdf)
