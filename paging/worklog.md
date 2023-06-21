@@ -35,4 +35,56 @@ add BYTE PTR [rax], al　は、raxが指すアドレスにalを足す命令な�
 ```
 
 この時点でのRAXの値は0000000000fead60となっていた。\
-このアドレスはカーネル空間のアドレスなので、CPL=3の状態のアプリからアクセスできないから？
+このアドレスはカーネル空間のアドレスなので、CPL=3の状態のアプリからアクセスできないからかな？ \
+far return 前（カーネルモードの時）にRAXに格納されていたアドレスが、far return 後（ユーザモードの時）にもそのまま残っているからだめなのかも \
+取りあえずユーザーモードになる前に、RAXに対して仮想アドレスを設定してみてからfar returnしてみる。
+</br>
+</br>
+</br>
+
+一旦、RSPから8足したアドレスを設定してみる。\
+これによって、それぞれのレジスタの値は以下のように設定されたので、さきほどの部分でのページフォールとは回避できるはず。
+- RSP: 0xffffffffffffeff0
+- RAX: 0xffffffffffffeff8
+
+
+
+```
+CallApp: 
+    push rbp
+    mov rbp, rsp
+    mov rax ,r9
+    push rcx ; SS
+    add r9, -8
+    push r9   ; RSP
+    push rdx ; CS
+    push r8  ; RIP
+    o64 retf
+```
+
+RAXの値変更後の実行結果
+```
+0xffff800000001060:	push   rbp
+0xffff800000001061:	mov    rbp,rsp
+0xffff800000001064:	add    BYTE PTR [rax],al
+0xffff800000001066:	add    BYTE PTR [rax],al
+0xffff800000001068:	add    BYTE PTR [rax],al
+                     ・
+                     ・
+                     ・
+0xffff800000002ffe:	add    BYTE PTR [rax],al
+0xffff800000003000:	<error: Cannot access memory at address 0xffff800000003000>
+IntHandlerPF (frame=0xfffffffffffff100, error_code=144)
+```
+
+またしてもページフォールトが発生したが、今度は0xffff800000003000で発生した。　\
+おそらくそのページの終端に達して、ページが割り当てられていないアドレスにまで到達したから。\
+到達するまでは、add    BYTE PTR [rax],al　が繰り返し実行されている。\
+となると、そもそもこの命令が出力されること自体おかしいのではないかと思い、ChatGPTに聞いてみると、
+
+> add BYTE PTR [rax],alという命令が繰り返し出力されているというのは一般的ではありません。そして、特にwhileループのコードから生じるものではありません。
+この命令は、RAXレジスタが示すメモリアドレスのバイトにALレジスタの値を加算します。そしてこの命令が連続しているということは、何らかの無限ループやバグを示唆している可能性があります。\
+特に、メモリアドレスやレジスタ値が不適切な場合、このような命令が生成される可能性があります。
+
+とのことだったので、なぜこの命令が出力されてしまっているのかを調べていくことにする。
+
