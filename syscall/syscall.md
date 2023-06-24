@@ -1,5 +1,7 @@
 # システムコール
 
+<img width="2059" alt="スクリーンショット 2023-06-25 0 13 15" src="https://github.com/junyaU/os_study_memo/assets/61627945/06a4e214-0b14-4f5c-8c0b-86d4584965a5">
+
 ## システムコールとは
 
 ## なぜシステムコールが必要なのか
