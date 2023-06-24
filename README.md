@@ -16,6 +16,12 @@ x86_64アーキテクチャの自作OSを作成するにあたっての勉強録
 - [社内勉強会発表資料 - Local APIC Timerを用いて時間計測機能を実装](./documents/local_apic_timer_study.pdf)
 - [勉強会用リポジトリ](https://github.com/junyaU/time-measurement-using-Local-APIC)
 
+
+### システムコール
+- [システムコールとは](./syscall/syscall.md)
+- [ユーザーモードとカーネルモード](./syscall/mode.md)
+- [MSRとは](./syscall/msr.md)
+
 ## 参考
 Intel® 64 and IA-32 Architectures SDM \
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
