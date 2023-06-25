@@ -1,7 +1,7 @@
 # OS勉強録
 
 x86_64アーキテクチャの自作OSを作成するにあたっての勉強録😓 \
-お気軽にご指摘をいただけると幸いです🙏
+勉強会で発表した資料や作業録をまとめていく
 
 ## 内容
 
@@ -20,7 +20,6 @@ x86_64アーキテクチャの自作OSを作成するにあたっての勉強録
 ### システムコール
 - [システムコールとは](./syscall/syscall.md)
 - [ユーザーモードとカーネルモード](./syscall/mode.md)
-- [MSRとは](./syscall/msr.md)
 
 ## 参考
 Intel® 64 and IA-32 Architectures SDM \
@@ -37,6 +36,19 @@ https://www.amazon.co.jp/%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E3%81%AEOS%E8%87%A
 
 Introduction to Paging \
 https://os.phil-opp.com/paging-introduction/
+
+Hello uchan world, Local APICタイマー入門（PDF） \
+https://booth.pm/ja/items/1319521
+
+Microsoft ACPI system description tables \
+https://learn.microsoft.com/en-us/windows-hardware/drivers/bringup/acpi-system-description-tables
+
+EDKⅡ UEFI Driver Writer’s Guide \
+https://edk2-docs.gitbook.io/edk-ii-uefi-driver-writer-s-guide/
+
+https://wiki.osdev.org/ACPI_Timer
+
+https://wiki.osdev.org/APIC
 
 
 
