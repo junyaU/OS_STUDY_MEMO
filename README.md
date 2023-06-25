@@ -25,7 +25,7 @@ x86_64アーキテクチャの自作OSを作成するにあたっての勉強録
 Intel® 64 and IA-32 Architectures SDM \
 https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4.html
 
-コンピューターシステムの理論と実装 \
+コンピューターシステムの理論と実装 - モダンなコンピュータの作り方 \
 https://www.oreilly.co.jp/books/9784873117126/
 
 自作エミュレータで学ぶx86アーキテクチャ-コンピュータが動く仕組みを徹底理解! \
